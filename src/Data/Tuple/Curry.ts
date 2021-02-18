@@ -20,6 +20,35 @@ export const curryN3 =
     f (a, b, c)
 
 /**
+ * `curryN4 :: ((a, b, c, d) -> e) -> a -> b -> c -> d -> e`
+ *
+ * `curryN4` converts an uncurried function to a curried function.
+ */
+export const curryN4 =
+  <A, B, C, D, E> (f: (a: A, b: B, c: C, d: D) => E) => (a: A) => (b: B) => (c: C) => (d: D): E =>
+    f (a, b, c, d)
+
+/**
+ * `curryN5 :: ((a, b, c, d, e) -> f) -> a -> b -> c -> d -> e -> f`
+ *
+ * `curryN5` converts an uncurried function to a curried function.
+ */
+export const curryN5 =
+  <A, B, C, D, E, F> (f: (a: A, b: B, c: C, d: D, e: E) => F) =>
+  (a: A) => (b: B) => (c: C) => (d: D) => (e: E): F =>
+    f (a, b, c, d, e)
+
+/**
+ * `curryN6 :: ((a, b, c, d, e, f) -> g) -> a -> b -> c -> d -> e -> f -> g`
+ *
+ * `curryN6` converts an uncurried function to a curried function.
+ */
+export const curryN6 =
+  <A, B, C, D, E, F, G> (fun: (a: A, b: B, c: C, d: D, e: E, f: F) => G) =>
+  (a: A) => (b: B) => (c: C) => (d: D) => (e: E) => (f: F): G =>
+    fun (a, b, c, d, e, f)
+
+/**
  * `uncurryN :: (a -> b -> c) -> (a, b) -> c`
  *
  * `uncurryN` converts a curried function to a function on pairs.

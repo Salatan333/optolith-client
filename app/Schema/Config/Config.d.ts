@@ -1,7 +1,8 @@
 export interface RawConfig {
-  herolistSortOrder: "name" | "dateModified"
+  herolistSortOrder: "name" | "datemodified" | "dateModified"
   herolistVisibilityFilter: "all" | "own" | "shared"
   racesSortOrder: "name" | "cost"
+  racesValueVisibility?: boolean
   culturesSortOrder: "name" | "cost"
   culturesVisibilityFilter: "all" | "common"
   culturesValueVisibility?: boolean
@@ -20,8 +21,11 @@ export interface RawConfig {
   equipmentSortOrder: "name" | "groupname" | "where" | "weight"
   equipmentGroupVisibilityFilter: number
   sheetCheckAttributeValueVisibility?: boolean
+  sheetUseParchment?: boolean
+  sheetZoomFactor?: number
   enableActiveItemHints: boolean
   locale?: string
+  fallbackLocale?: string
   theme?: "light" | "dark"
   enableEditingHeroAfterCreationPhase?: boolean
   meleeItemTemplatesCombatTechniqueFilter?: string

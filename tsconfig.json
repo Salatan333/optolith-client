@@ -3,17 +3,16 @@
     "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
     "importHelpers": true,
     "jsx": "react",
     "lib": ["esnext", "dom"],
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "outDir": "app/",
     "removeComments": true,
     "resolveJsonModule": true,
@@ -21,7 +20,8 @@
     "inlineSourceMap": true,
     "strict": true,
     "skipLibCheck": true,
-    "target": "es2019"
+    "target": "es2019",
+    "noEmit": true
   },
   "include": [
     "src/**/*",
@@ -29,7 +29,6 @@
     "app/**/*.d.ts"
   ],
   "exclude": [
-    "node_modules",
-    "**/__tests__/**"
+    "node_modules"
   ]
 }

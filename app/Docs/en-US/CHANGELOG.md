@@ -1,3 +1,138 @@
+## 1.4.2
+
+### Enhancements
+
+- Start-up was way slower than in 1.3.2. [#751](https://github.com/elyukai/optolith-client/issues/751)
+
+### Bug Fixes
+
+- Added some missing UI translations. [#723](https://github.com/elyukai/optolith-client/issues/723)
+- Added missing aspects for **Gods of Aventuria I**. [#724](https://github.com/elyukai/optolith-client/issues/724)
+- Added missing special ability groups for **Gods of Aventuria I**. [#725](https://github.com/elyukai/optolith-client/issues/725)
+- SA *Two Blessings at Once* had the wrong rules text. [#750](https://github.com/elyukai/optolith-client/issues/750)
+- Combat Techniques maximum CtR could be higher that allowed by rules. [#749](https://github.com/elyukai/optolith-client/issues/749)
+- The top margin of overlay windows – like when adding advantages – was too small. [#727](https://github.com/elyukai/optolith-client/issues/727)
+- If a profession allowed to select a second combat technique from a set of combat techniques where the bonus was lower than the bonus for the first combat technique, the selected lower bonus was not applied to the character. [#647](https://github.com/elyukai/optolith-client/issues/647)
+- The *Torch* had P+T STR 15 instead of STR 14. [#752](https://github.com/elyukai/optolith-client/issues/752) [#737](https://github.com/elyukai/optolith-client/issues/737)
+- The P+T damage bonus was not added to weapons without flat damage. [#737](https://github.com/elyukai/optolith-client/issues/737)
+- Profession *White Mage (Gareth Academy of Sword and Staff)* from the **Core Rules** had a wrong AP value and *Astronomy 4* instead of *Alchemy 4*. [#568](https://github.com/elyukai/optolith-client/issues/568)
+- Creature skills text field on PDF export was too short to fit all relevant skills of a creature. [#733](https://github.com/elyukai/optolith-client/issues/733)
+- SA *Followers of the Golden One* allowed liturgical chants up to improvement cost C instead of up to B. [#754](https://github.com/elyukai/optolith-client/issues/754)
+- Profession *Guildless Mage (Vadif sal Karim’s Student)* had a bonus on the wrong *Hailstorm and Roar of Thunder* spellwork. [#772](https://github.com/elyukai/optolith-client/issues/772)
+- SA *Bladestorm* had wrong applicable combat techniques. [#768](https://github.com/elyukai/optolith-client/issues/768)
+- Some books were missing the weight. [#760](https://github.com/elyukai/optolith-client/issues/760)
+- Images with uppercase file endings have not been accepted as portrait images. [#762](https://github.com/elyukai/optolith-client/issues/762)
+- The upload icon was shown in place of the portrait image on the character sheet if no portrait was defined. [#759](https://github.com/elyukai/optolith-client/issues/759)
+- On the Mac, if paper background was activated, additional blank pages were generated for the PDF output. [#748](https://github.com/elyukai/optolith-client/issues/748)
+
+### Thank you
+
+Last but definitely not least a big **Thank You** to all of you who give feedback and help out on various channels as well as to the following people on GitHub who contributed to this release!
+
+- [Jordok (@Jordok)](https://github.com/Jordok)
+- [JoveToo (@JoveToo)](https://github.com/JoveToo)
+- [Lorenz Cuno Klopfenstein (@LorenzCK)](https://github.com/LorenzCK)
+- [ZeSandman (@ZeSandman)](https://github.com/ZeSandman)
+
+## 1.4.1
+
+### Bug Fixes
+
+- Italian was not available.
+
+## 1.4.0
+
+### Features
+
+- **Gods of Aventuria I** [#656](https://github.com/elyukai/optolith-client/issues/656)
+- Italian translation [#667](https://github.com/elyukai/optolith-client/issues/667) [#610](https://github.com/elyukai/optolith-client/issues/610)
+- Optional paper-style background for character sheet. [#36](https://github.com/elyukai/optolith-client/issues/36)
+- Character Sheet view zoom option. [#665](https://github.com/elyukai/optolith-client/issues/665)
+- Add/Subtract money from purse. [#666](https://github.com/elyukai/optolith-client/issues/666)
+- Create custom advantages, disadvantages and special abilities with custom name and AP value (temporary solution). [#632](https://github.com/elyukai/optolith-client/issues/632)
+
+### Enhancements
+
+- Weight is now shown in an own column in equipment tab. [#305](https://github.com/elyukai/optolith-client/issues/305)
+- Unnecessary combat sheets are not used anymore, it now depends on which armor the character has. It defaults to the normal armor if no armor is present. [#407](https://github.com/elyukai/optolith-client/issues/407)
+- You can now click on entry names as well to show it's rules text. [#556](https://github.com/elyukai/optolith-client/issues/556)
+
+### Bug Fixes
+
+- Variants of profession *Blessed One of Boron* had wrong skill modifications. [#548](https://github.com/elyukai/optolith-client/issues/548)
+- Profession *White Mage (Sword & Staff)* had a wrong AP value and an additional skill modification. [#568](https://github.com/elyukai/optolith-client/issues/568)
+- Fixed common professions of a culture will now be shown even if they are not from the **Core Rules**. [#563](https://github.com/elyukai/optolith-client/issues/563)
+- The interface could be scaled down. [#487](https://github.com/elyukai/optolith-client/issues/487)
+- Weapons of the combat technique *Lances* were not shown on character sheet. [#662](https://github.com/elyukai/optolith-client/issues/662)
+- Attributes ignored the minimum caused by high skill ratings. The maximum of skill rating is the highest linked attribute&thinsp;+&thinsp;2, so the highest attribute is required to have a minimum value of SR&thinsp;&minus;&thinsp;2. [#630](https://github.com/elyukai/optolith-client/issues/630)
+- The new application *Professional Publications* for skill *Law* had a wrong special ability prerequisite. [#680](https://github.com/elyukai/optolith-client/issues/680)
+- Some list items were wider than the actual list. [#683](https://github.com/elyukai/optolith-client/pull/683)
+- List headers were not centered by default. [#637](https://github.com/elyukai/optolith-client/issues/637)
+- Permanently spent LP did not allow additional LP to be bought. [#606](https://github.com/elyukai/optolith-client/issues/606)
+- Additional LP could not be added if CON is 8 and nothing depends on it. [#694](https://github.com/elyukai/optolith-client/issues/694)
+- SA *Aspect Knowledge* did not show up even with three chants on SR 10 or higher. [#591](https://github.com/elyukai/optolith-client/issues/591)
+- Cantrip Witch's Gaze was selectable by all spell casters. [#377](https://github.com/elyukai/optolith-client/issues/377)
+- Arcane Dancers could not add magical dances. [#594](https://github.com/elyukai/optolith-client/issues/594)
+- Select options of traditions Arcane Bard and Arcane Dancer did not require their respective culture and possible sex. [#565](https://github.com/elyukai/optolith-client/issues/565)
+- If, in addition to the selection of one or more fighting techniques for a certain CtR, one or more other fighting techniques should be selected for a lower CtR (e.g. in the profession *Soldier*), it was not possible. [#647](https://github.com/elyukai/optolith-client/issues/647)
+- Certain values on character sheet were not floored. [#655](https://github.com/elyukai/optolith-client/issues/655)
+- Chain Mail was available twice. [#570](https://github.com/elyukai/optolith-client/issues/570)
+- Scale Mail was available twice and had a typo. [#569](https://github.com/elyukai/optolith-client/issues/569)
+- Updater checks and the check for updates button are now disabled on macOS since updates are not possible on macOS currently. [#589](https://github.com/elyukai/optolith-client/issues/589)
+- Wrong applicable combat techniques for SA *Enemy Sense*. [#658](https://github.com/elyukai/optolith-client/issues/658)
+- Auto-update alerts were enabled on Linux even when there were no direct auto-updates available. [#573](https://github.com/elyukai/optolith-client/issues/573)
+- The save dialog for exporting a character as JSON did not add the file extension to the suggested file name. [#718](https://github.com/elyukai/optolith-client/issues/718)
+
+### API
+
+There are important and breaking changes coming with the next release, so if you use the Optolith source or save data, I'd recommend to come over to [Discord](https://discord.gg/wfdgB9g) so that I can tell you what is going to be changed in detail. Since more and more people depend on Optolith's data I will now follow semantic versioning strictly so that you can rely on the compatibility of source files just by checking out the version number. There will be a new format for heroes as well as for the source data. You can also give feedback on the changes, since they are not *completely* done yet &ndash; but I still think it would make sense to check out the changes as early as possible. The next major version is still a bit away, so you'll have plenty of time to adjust your software.
+
+### Thank you
+
+Last but definitely not least a big **Thank You** to the following people on GitHub who contributed to this release!
+
+- [Jonas (@Rahjenaos)](https://github.com/Rahjenaos)
+- [Jordok (@Jordok)](https://github.com/Jordok)
+- [JoveToo (@JoveToo)](https://github.com/JoveToo)
+- [Lorenz Cuno Klopfenstein (@LorenzCK)](https://github.com/LorenzCK)
+- [manuelstengelberger (@manuelstengelberger)](https://github.com/manuelstengelberger)
+- [Philipp A. (@flying-sheep)](https://github.com/flying-sheep)
+- [ZeSandman (@ZeSandman)](https://github.com/ZeSandman)
+
+## 1.3.2
+
+### Bug Fixes
+
+- Combat Techniques from books other than Core Rules were missing in combat techniques tab. #543
+- Description of combat technique selection for profession variants does not render properly. #539
+- Profession *Lanisto*: Skill Specialization selection referenced the wrong skill. #537
+- Professions did not react to dependencies. #507
+- *Old Adersin Style* missing from **Aventuria Armory**. #499
+- Professions' section header "Combat Techniques" is German ("Kampftechniken"). #500
+- Textfield „Title“ in personal data had wrong label. #492
+- Profession *Hazaqi*: *Earthencraft* 4 is now *Clothworking* 4. #496
+- Trade Secrets from *Armory of the Warring Kingdoms* were missing. #474
+- SA *Binding of the Spell-Sword* had no costs. #490
+- *Religion* was on SR 6 for most of the Blessed One professions. #475
+- States were overflowing on character sheet PDF but not in Optolith. #473
+- The `config.json` has still thrown errors for many users. The problem should be fixed, finally. #476
+- In very rare situations parts of the heroes file or the whole heroes file have been deleted. Because of this, saving heroes has been completely rewritten and condensed to prevent further issues. #477
+- Added missing Garethi dialect *Nostrian*. #480
+- Fixed prerequisites for SA Energy Control. #471
+- Fixed third-party licenses. #471
+
+### Known Issues
+
+- Some of the entries with more complex prerequisites might *display* them wrong but *handle* them correct.
+
+## 1.3.1
+
+### Bug Fixes
+
+- In the French version, you were not able to create characters, because you could not choose any publication, race, ... #449
+- There was an error thrown by "unknown keys" in the config. #450
+- On character sheet, states were only displayed in one column if the amount of states was even. #448
+
 ## 1.3.0
 
 ### New Features

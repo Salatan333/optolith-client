@@ -1,3 +1,167 @@
+## 1.4.2
+
+### Enhancements
+
+- Der Start der Anwendung war viel langsamer als in Version 1.3.2. [#751](https://github.com/elyukai/optolith-client/issues/751)
+
+### Fehlerbehebungen
+
+- Das Maximum von Kampftechniken konnte höher sein als es die Regeln eigentlich erlauben. [#749](https://github.com/elyukai/optolith-client/issues/749)
+- Der Abstand von Overlays – also z. B. wenn Vorteile hinzugefügt werden – nach oben war zu klein. [#727](https://github.com/elyukai/optolith-client/issues/727)
+- Wenn eine Profession es erlaubt hat, aus einer Menge an Kampftechniken eine zweite für einen niedrigeren Bonus als den der ersten auszuwählen, wurde dieser niedrigere Bonus nicht auf den Charakter angewandt. [#647](https://github.com/elyukai/optolith-client/issues/647)
+- Die *Fackel* hatte als L+S KK 15 statt KK 14. [#752](https://github.com/elyukai/optolith-client/issues/752) [#737](https://github.com/elyukai/optolith-client/issues/737)
+- Der Schadensbonus durch L+S wurde bei Waffen, die keinen festen Schaden hatten, nicht berücksichtigt. [#737](https://github.com/elyukai/optolith-client/issues/737)
+- Es konnte nur ein Talentstil zur gleichen Zeit aktiv sein, obwohl es keine Einschränkung diesbezüglich gibt. [#665](https://github.com/elyukai/optolith-client/issues/665)
+- Die Profession *Weißmagier (Akademie Schwert und Stab zu Gareth)* aus dem **Regelwerk** hatte falsche AP-Kosten und *Sternkunde 4* statt *Alchemie 4*. [#568](https://github.com/elyukai/optolith-client/issues/568)
+- Das Talentefeld für Tierbegleiter auf dem Charakterbogen was zu klein, um alle relevanten Talente aufnehmen zu können. [#733](https://github.com/elyukai/optolith-client/issues/733)
+- Im Regeltext für das *Großzelt, 12 Personen* fehlte ein Wort. [#739](https://github.com/elyukai/optolith-client/issues/739)
+- SF *Anhänger des Güldenen* erlaubte Liturgien bis Steigerungsfaktor C, obwohl nur welche bis B erlaubt sind. [#754](https://github.com/elyukai/optolith-client/issues/754)
+- SF *Scholar des Magierkollegs zu Honingen* fehlte. [#726](https://github.com/elyukai/optolith-client/issues/726)
+- SF *Havena-Stil* fehlte. [#740](https://github.com/elyukai/optolith-client/issues/740)
+- Der Name des Feenpaktgeschenks *Ruf des Waldes* hatte einen Schreibfehler. [#755](https://github.com/elyukai/optolith-client/issues/755)
+- Profession *Gildenloser Magier nach Vadif sal Karim* hatte eine Bonus auf den falschen *Hagelschlag*-Zauber. [#772](https://github.com/elyukai/optolith-client/issues/772)
+- Der Text der dritten Erweiterung des Zaubers *Klarheit des Eises* hatte eine falsche Zeiteinheit in der Zeitangabe. [#766](https://github.com/elyukai/optolith-client/issues/766)
+- Der SF *Spiritualistinnen* hatte falsche erweiterte Sonderfertigkeiten. [#763](https://github.com/elyukai/optolith-client/issues/763)
+- SF *Klingensturm* hatte falsche Kampftechniken angegeben. [#768](https://github.com/elyukai/optolith-client/issues/768)
+- Bilder mit großgeschriebenen Dateiendungen wurden als Portraits nicht akzeptiert. [#762](https://github.com/elyukai/optolith-client/issues/762)
+- Wenn ein Portrait fehlte, wurde auf dem Charakterbogen das Upload-Icon angezeigt. [#759](https://github.com/elyukai/optolith-client/issues/759)
+- Auf dem Mac wurden, wenn eine Papiertextur für den Charakterbogen ausgewählt wurde, zusätzliche leere Seiten generiert. [#748](https://github.com/elyukai/optolith-client/issues/748)
+- Der Effekttext der SF *Bindung des Dolches* hatte einen Schreibfehler. [#773](https://github.com/elyukai/optolith-client/issues/773)
+
+### Danke
+
+Zu guter Letzt ein großes **Danke** an alle, die über verschiedeste Kanäle Feedback geben und helfen, sowie an die folgenden Menschen auf GitHub, die an dieser Version mitgewirkt haben!
+
+- [Jordok (@Jordok)](https://github.com/Jordok)
+- [JoveToo (@JoveToo)](https://github.com/JoveToo)
+- [Lorenz Cuno Klopfenstein (@LorenzCK)](https://github.com/LorenzCK)
+- [ZeSandman (@ZeSandman)](https://github.com/ZeSandman)
+
+## 1.4.1
+
+### Fehlerbehebungen
+
+- Italienisch war nicht verfügbar.
+
+## 1.4.0
+
+### Features
+
+- **Havena &ndash; Versunkene Geheimnisse** [#460](https://github.com/elyukai/optolith-client/issues/460)
+- **Unendlichkeit & Tiefenrausch** [#461](https://github.com/elyukai/optolith-client/issues/461)
+- **Katakomben & Ruinen** [#462](https://github.com/elyukai/optolith-client/issues/462)
+- Italienische Übersetzung [#667](https://github.com/elyukai/optolith-client/issues/667) [#610](https://github.com/elyukai/optolith-client/issues/610)
+- Optionaler Charakterbogenhintergrund in Papieroptik. [#36](https://github.com/elyukai/optolith-client/issues/36)
+- Zoom-Option für Charakterbogen-Ansicht. [#665](https://github.com/elyukai/optolith-client/issues/665)
+- Geld zum Geldbeutel hinzufügen oder davon abziehen. [#666](https://github.com/elyukai/optolith-client/issues/666)
+- Eigene Vorteile, Nachteile und Sonderfertigkeiten mit eigenem Namen und AP-Wert erstellen (temporäre Lösung). [#632](https://github.com/elyukai/optolith-client/issues/632)
+
+### Verbesserungen
+
+- Im Ausrüstungstab wird das Gewicht nun in einer eigenen Spalte angezeigt. [#305](https://github.com/elyukai/optolith-client/issues/305)
+- Unnötige Kampfbögen werden jetzt nicht mehr angezeigt und exportiert, stattdessen basiert die Anzeige nun darauf, welche Rüstungen der jeweilige Charakter besitzt. Der Kampfbogen für Komplettrüstungen wird angezeigt, wenn der Charakter keine Rüstung besitzt. [#407](https://github.com/elyukai/optolith-client/issues/407)
+- Der Name eines Eintrags zeigt nun, wie der Info-Button am Ende, den Regeltext des Eintrags an. [#556](https://github.com/elyukai/optolith-client/issues/556)
+
+### Fehlerbehebungen
+
+- Waffen aus **Aventurische Magie I** wurden nicht angezeigt. [#617](https://github.com/elyukai/optolith-client/issues/617)
+- Gegenstände aus **Aventurische Magie II** wurden nicht angezeigt. [#659](https://github.com/elyukai/optolith-client/issues/659)
+- In der Beschreibung der SF *Metessa Galora-Stil* war ein Schreibfehler. [#635](https://github.com/elyukai/optolith-client/issues/635)
+- SF *Tannhaus-Stil* hatte eine falsche Kampftechniken-Angabe. [#634](https://github.com/elyukai/optolith-client/issues/634)
+- SF *Sippenkrieger-Stil* hatte falsche erweiterte Sonderfertigkeiten. [#587](https://github.com/elyukai/optolith-client/issues/587)
+- Bei der Profession *Golgarit* und dessen Variante *Untotenjäger* fehlte die SF *Berittener Kampf*. [#597](https://github.com/elyukai/optolith-client/issues/597)
+- Die Profession *Ingerimmgeweihter* hatte falsche AP-Kosten und ihr fehlte eine Liturgie. [#574](https://github.com/elyukai/optolith-client/issues/574)
+- Die Varianten der Profession *Borongeweihter* hatten falsche Talentmodifikationen. [#548](https://github.com/elyukai/optolith-client/issues/548)
+- SF *Rabenschwestern (Seherin von Heute und Morgen)* hatte falsche erweiterte Sonderfertigkeiten. [#639](https://github.com/elyukai/optolith-client/issues/639)
+- Profession *Kammerdiener (Zofe)* hatte einen Bonus auf das falsche Talent. [#614](https://github.com/elyukai/optolith-client/issues/614)
+- SF *Elfenfreund* hatte Errata, die aber noch nicht eingepflegt waren. [#621](https://github.com/elyukai/optolith-client/issues/621)
+- Profession *Weißmagier (Schwert & Stab zu Gareth)* hatte einen falschen AP-Wert und eine zusätzliche Talentmodifikation. [#568](https://github.com/elyukai/optolith-client/issues/568)
+- Der Name der Variante *Pfad der Wächterin* der Profession *Gildenlose Magierin (Bannakademie von Fasar)* hatte einen Schreibfehler. [#566](https://github.com/elyukai/optolith-client/issues/566)
+- Zauber *Skelettarius* hatte die Zauberweiterung *Längere Dienste* statt *Längerer Dienst* und auch einen falschen Beschreibungstext. [#602](https://github.com/elyukai/optolith-client/issues/602)
+- Spezifisch definierte übliche Professionen einer Kultur werden nun auch dann angezeigt, wenn sie nicht aus dem **Regelwerk** stammen. [#563](https://github.com/elyukai/optolith-client/issues/563)
+- SF *Balboram-Stil* hatte Lanzenangriff I statt Beidhändiger Kampf I als Voraussetzung. [#563](https://github.com/elyukai/optolith-client/issues/563)
+- Der Erfahrungsgrad *Brillant* wurde zuvor Brilliant geschrieben. Das gleiche Problem gab es auch bei anderen Einträgen. [#567](https://github.com/elyukai/optolith-client/issues/567)
+- Zauber *Halluzination* hatte als Verbreitung Elfen, obwohl es Druiden hätte sein müssen. [#564](https://github.com/elyukai/optolith-client/issues/564)
+- Das Interface konnte kleiner skaliert werden. [#487](https://github.com/elyukai/optolith-client/issues/487)
+- Schelmenstreiche zeigten keine Wirkungsdauer an, obwohl sie eine besitzen. [#663](https://github.com/elyukai/optolith-client/issues/663)
+- Waffen der Kampftechnik *Lanzen* wurden nicht auf dem Heldenbogen abgezeigt. [#662](https://github.com/elyukai/optolith-client/issues/662)
+- Eigenschaften ignorierten das Minimum, welches durch höhere Fertigkeitswerte entsteht. Das Maximum für Fertigkeitswerte ist die höchste an der Probe beteiligte Eigenschaft&thinsp;+&thinsp;2, wodurch die höchste Eigenschaft mindestens FW&thinsp;&minus;&thinsp;2 sein muss. [#630](https://github.com/elyukai/optolith-client/issues/630)
+- Das neue Anwendungsgebiet *Fachpublikationen* für das Talent *Rechtskunde* hatte eine falsche Sonderfertigkeitsvoraussetzung. [#680](https://github.com/elyukai/optolith-client/issues/680)
+- Geweihte des Namenlosen konnten keine Segnungen kaufen. [#657](https://github.com/elyukai/optolith-client/issues/657)
+- Einige Listeneinträge waren breiter als die eigentliche Liste. [#683](https://github.com/elyukai/optolith-client/pull/683)
+- SF *Kind der Natur* und ähnliche SFs erlaubten nur ein Talent. [#649](https://github.com/elyukai/optolith-client/issues/649)
+- Listenüberschriften waren standardmäßig nicht zentriert. [#637](https://github.com/elyukai/optolith-client/issues/637)
+- SF *Fachwissen* hatte unerwartete Zeichen im generierten Namen. [#611](https://github.com/elyukai/optolith-client/issues/611)
+- Permanent ausgegebene LE verbot den Kauf weiterer LeP. [#606](https://github.com/elyukai/optolith-client/issues/606)
+- Wenn KO auf 8 war und keine Einträge von ihr abhingen, konnten keine weiteren LeP gekauft werden. [#694](https://github.com/elyukai/optolith-client/issues/694)
+- *Aspektkenntnis*-SFs konnten trotz des Minimums von mindestens drei Liturgien des Aspekts auf FW 10 oder höher nicht gekauft werden. [#591](https://github.com/elyukai/optolith-client/issues/591)
+- Der Zaubertrick *Hexenblick* konnte von allen Zauberern gekauft werden. [#377](https://github.com/elyukai/optolith-client/issues/377)
+- Zaubertänzer konnten keine Zaubertänze kaufen. [#594](https://github.com/elyukai/optolith-client/issues/594)
+- Die Varianten der Zaubertänzer und -barden berücksichtigten ihre jeweiligen Kultur- und ggf. Geschlechtsvoraussetzungen nicht. [#565](https://github.com/elyukai/optolith-client/issues/565)
+- Wenn bei einer Profession neben der Auswahl einer oder mehrerer Kampftechniken für einen bestimmten KtW eine oder mehrere weitere Kampftechniken für einen niedrigeren KtW ausgewählt werden sollen (z. B. bei der Profession *Soldat*), war dies nicht möglich. [#647](https://github.com/elyukai/optolith-client/issues/647)
+- Die SFs *Gift melken (...)* beschrieben ein neues Einsatzgebiet, gemeint ist eine *Einsatzmöglichkeit*. [#651](https://github.com/elyukai/optolith-client/issues/651)
+- Die Beschreibung des Zaubers *Gletscherform* entsprach nicht dem Text aus **Aventurische Magie II**. [#654](https://github.com/elyukai/optolith-client/issues/654)
+- Meldungen des Updaters sowie der Suche-nach-Updates-Button sind nun auf macOS deaktiviert, da dort aktuell keine automatischen Updates möglich sind. [#589](https://github.com/elyukai/optolith-client/issues/589)
+- Die SF *Feindgespür* nannte falsche Kampftechniken, für die die SF gilt. [#658](https://github.com/elyukai/optolith-client/issues/658)
+- Auto-Update-Warnungen wurden auf Linux gezeigt selbst wenn keine direkten Auto-Updates möglich waren. [#573](https://github.com/elyukai/optolith-client/issues/573)
+- Bei der SF *Zugvögel* und SFs mit vergleichbaren Effekten wurden die zusätzlich ermöglichten Liturgieplätze durch passende aktive Liturgien, die allerdings auch für die eigentliche Tradition der Geweihten verfügbar waren, blockiert. [#677](https://github.com/elyukai/optolith-client/issues/677)
+- Die SF *Giftverstärkung* hatte einen falschen Regeltext. [#713](https://github.com/elyukai/optolith-client/issues/713)
+- Beim Exportieren eines Charakters als JSON wurde im Speichern-Dialog die Dateiendung nicht an den vorgeschlagenen Dateinamen angefügt. [#718](https://github.com/elyukai/optolith-client/issues/718)
+
+### API
+
+Die nächste Release wird wichtige und mit vorherigen Versionen inkompatible Änderungen mit sich bringen, wenn du also Optolith-Quelldateien oder -Speicherdateien nutzt, würde ich dir empfehlen, mal auf [Discord](https://discord.gg/wfdgB9g) vorbeizuschauen, da kann ich dir dann alles im Detail erläutern. Da mehr und mehr Menschen von der Optolith-Datenbasis abhängen, werde ich ab jetzt Semantic Versioning strikt folgen, sodass du dich allein auf Basis der Version darauf verlassen kannst, dass du mit deiner Software immer noch damit arbeiten kannst. Es wird ein neues Format für Charaktere, aber auch für sämtliche Wikieinträge geben. Du kannst mir auch immer noch Feedback zukommen lassen, da noch nicht alles bis ins letzte Detail fertig ist &ndash; aber ich denke, es macht immer noch Sinn, sich diese Änderungen recht früh anzusehen. Die nächste major Version ist immer noch ein gutes Stück entfernt, sodass noch mehr als genug Zeit ist, um deine Software anzupassen.
+
+### Danke
+
+Zu guter Letzt ein großes **Danke** an die folgenden Menschen auf GitHub, die an dieser Version mitgewirkt haben!
+
+- [Jonas (@Rahjenaos)](https://github.com/Rahjenaos)
+- [Jordok (@Jordok)](https://github.com/Jordok)
+- [JoveToo (@JoveToo)](https://github.com/JoveToo)
+- [Lorenz Cuno Klopfenstein (@LorenzCK)](https://github.com/LorenzCK)
+- [manuelstengelberger (@manuelstengelberger)](https://github.com/manuelstengelberger)
+- [Philipp A. (@flying-sheep)](https://github.com/flying-sheep)
+- [ZeSandman (@ZeSandman)](https://github.com/ZeSandman)
+
+## 1.3.2
+
+### Fehlerbehebungen
+
+- SF Wege der Gelehrten: Es fehlten einige Auswahlmöglichkeiten. #517
+- Neue Kampftechniken aus Büchern abseits des Regelwerks fehlten im Kampftechniken-Tab. #543
+- Die Beschreibung der Kampftechnikauswahl bei Professionsvarianten wurde nicht richtig angezeigt.
+- Die Sozialstatusvoraussetzung für *Herrschaftsanspruch* funktionierte nicht.
+- Profession *Lanisto*: Die Fertigkeitsspezialisierung galt für das falsche Talent.
+- Professionen haben ihre Abhängigkeiten nicht beachtet.
+- In den persönlichen Daten hatte das Textfeld „Titel“ die falsche Beschriftung.
+- Falsche Volumenangaben in der Effektbeschreibung des Zaubers *Manifesto*.
+- Profession *Hazaqi*: *Steinbearbeitung* 4 ist jetzt *Stoffbearbeiung* 4.
+- Berufsgeheimnisse aus der *Rüstkammer der Streitenden Königreiche* fehlten. #474
+- SF *Bindung des Bannschwerts* hatte keine Kosten. #490
+- *Götter & Kulte* war bei den meisten Geweihtenprofessionen auf FW 6. #475
+- Auf dem PDF wurde die Zustand/Status-Tabelle abgeschnitten, was aber nicht in der PDF-Vorschaut in Optolith der Fall war. #473
+- SF *Waldritter-Stil* war nicht wählbar. #478
+- SF *Angetäuschter Angriff* hatte als Voraussetzung KK 15 statt GE 15. #481
+- Die `config.json` hat immer noch bei vielen Fehler geworfen. Das Problem sollte nun endgültig gebannt sein. #476
+- In sehr seltenen Fällen wurden Teile der Heldendatei oder die gesamte Heldendatei gelöscht. Das Schreiben von Heldendateien wurde daher komplett neu geschrieben und zusammengefasst, um weiteren Fehlern vorzubeugen. #477
+- Fehlenden Garethi-Dialekt *Nostrisch* hinzugefügt. #480
+- SF Kraftkontrolle hatte als Voraussetzung statt Leiteigenschaft 15 Leiteigenschaft 13. #471
+- Fehler bei Drittanbieterlizenzen behoben. #471
+- Typo im Namen des Hardas-Stils korrigiert. #469
+
+### Bekannte Fehler
+
+- Einige Einträge, die komplexere Voraussetzungen haben, können diese Voraussetzungen falsch *anzeigen*, sie aber trotzdem richtig *verwenden*.
+
+## 1.3.1
+
+### Fehlerbehebungen
+
+- In der französischen Version fehlten alle Einträge, die zur Heldenerschaffung nötig sind (Spezies etc.). Sie waren vorhanden, wurden aber nicht in der Liste angezeigt. #449
+- Es gab Fehler, weil die Config unbekannte Keys hatte, wodurch Optolith nicht startete. #450
+- Auf dem Heldenbogen wurden Status nur in einer Spalte dargestellt, wenn es eine gerade Anzahl war. #448
+
 ## 1.3.0
 
 ### Neue Features

@@ -7,9 +7,8 @@ import { over, set } from "../../../Data/Lens"
 import { any, append, appendStr, consF, elem, fnull, head, ifoldr, imap, intercalate, intersperse, isList, List, map, notNull, notNullStr, snoc, snocF, toArray } from "../../../Data/List"
 import { bind, bindF, catMaybes, ensure, fromJust, fromMaybe, isJust, isNothing, joinMaybeList, Just, liftM2, mapMaybe, maybe, Maybe, maybeRNull, maybeRNullF, Nothing } from "../../../Data/Maybe"
 import { negate } from "../../../Data/Num"
-import { isOrderedMap, lookup, lookupF, notMember, OrderedMap } from "../../../Data/OrderedMap"
+import { isOrderedMap, lookup, lookupF, notMember } from "../../../Data/OrderedMap"
 import { Record, RecordI } from "../../../Data/Record"
-import { traceShowId } from "../../../Debug/Trace"
 import { Category } from "../../Constants/Categories"
 import { SpecialAbilityGroup } from "../../Constants/Groups"
 import { AdvantageId, SpecialAbilityId } from "../../Constants/Ids"
@@ -30,7 +29,7 @@ import { Race } from "../../Models/Wiki/Race"
 import { SpecialAbility } from "../../Models/Wiki/SpecialAbility"
 import { SelectOption } from "../../Models/Wiki/sub/SelectOption"
 import { StaticData, StaticDataRecord } from "../../Models/Wiki/WikiModel"
-import { Activatable, AllRequirements } from "../../Models/Wiki/wikiTypeHelpers"
+import { Activatable, AllRequirements, PrerequisitesIndex } from "../../Models/Wiki/wikiTypeHelpers"
 import { getNameCostForWiki } from "../../Utilities/Activatable/activatableActiveUtils"
 import { getName } from "../../Utilities/Activatable/activatableNameUtils"
 import { isExtendedSpecialAbility } from "../../Utilities/Activatable/checkStyleUtils"
@@ -153,9 +152,10 @@ const getSocialPrerequisiteText: (staticData: StaticDataRecord) =>
                                   ))
 
 export const getCategorizedItems =
-  (req_text_index: OrderedMap<number, string | false>) =>
-  ifoldr (i => (e: AllRequirements): ident<Record<CategorizedPrerequisites>> => {
-           const index_special = lookup (i) (req_text_index)
+  (_req_text_index: PrerequisitesIndex) =>
+  ifoldr (_i => (e: AllRequirements): ident<Record<CategorizedPrerequisites>> => {
+           // lookup (i) (req_text_index)
+           const index_special = Nothing
 
            if (Maybe.elem<string | false> (false) (index_special)) {
              return ident
@@ -546,7 +546,7 @@ export interface PrerequisitesProps {
 
 const getPrerequisites =
   (rs: List<AllRequirements>) =>
-  (req_text_index: OrderedMap<number, string | false>) =>
+  (req_text_index: PrerequisitesIndex) =>
   (props: PrerequisitesProps): List<Maybe<JSX.Element | string>> => {
     const { x, staticData } = props
 
@@ -654,8 +654,6 @@ export function PrerequisitesText (props: PrerequisitesTextProps) {
 
   const addTextAfterOutsideList: <A> (xs: List<TypeofList | A>) => List<TypeofList | A> =
     xs => maybe (xs) (snoc (xs)) (mtext_after_outsidelist)
-
-  traceShowId (prerequisites)
 
   if (isOrderedMap (prerequisites)) {
     const levelList = rangeN (1, levels)

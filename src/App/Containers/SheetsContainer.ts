@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { join, Just } from "../../Data/Maybe"
 import { ReduxDispatch } from "../Actions/Actions"
-import * as IOActions from "../Actions/IOActions"
+import { requestPrintHeroToPDF } from "../Actions/PrintActions"
 import * as SheetActions from "../Actions/SheetActions"
 import { SpecialAbilityId } from "../Constants/Ids"
 import { AppStateRecord } from "../Models/AppState"
@@ -22,7 +22,7 @@ import { getConditions, getSkillPages, getSkillsByGroup, getStates } from "../Se
 import { getAllSkills } from "../Selectors/skillsSelectors"
 import { getCantripsForSheet, getSpellsForSheet } from "../Selectors/spellsSelectors"
 import { getAvatar, getCurrentHeroName, getCurrentSex, getProfile, getPurse, getSpecialAbilities, getWikiBooks, getWikiSpecialAbilities } from "../Selectors/stateSelectors"
-import { getSheetCheckAttributeValueVisibility } from "../Selectors/uisettingsSelectors"
+import { getSheetCheckAttributeValueVisibility, getSheetUseParchment, getSheetZoomFactor } from "../Selectors/uisettingsSelectors"
 import { pipe } from "../Utilities/pipe"
 import { mapGetToMaybeSlice, mapGetToSlice } from "../Utilities/SelectorsUtils"
 import { Sheets, SheetsDispatchProps, SheetsOwnProps, SheetsStateProps } from "../Views/Sheets/Sheets"
@@ -54,6 +54,8 @@ const mapStateToProps = (state: AppStateRecord, ownProps: SheetsOwnProps): Sheet
   skills: getAllSkills (state),
   items: getAllItems (state),
   pet: getPet (state),
+  useParchment: getSheetUseParchment (state),
+  zoomFactor: getSheetZoomFactor (state),
   purse: getPurse (state),
   totalPrice: getTotalPrice (state),
   totalWeight: getTotalWeight (state),
@@ -92,8 +94,14 @@ const mapDispatchToProps = (dispatch: ReduxDispatch) => ({
   switchAttributeValueVisibility () {
     dispatch (SheetActions.switchAttributeValueVisibility ())
   },
+  switchUseParchment () {
+    dispatch (SheetActions.switchUseParchment ())
+  },
+  setSheetZoomFactor (zoomFactor: number) {
+    dispatch (SheetActions.setSheetZoomFactor (zoomFactor))
+  },
   async printToPDF () {
-    await dispatch (IOActions.requestPrintHeroToPDF)
+    await dispatch (requestPrintHeroToPDF ())
   },
 })
 

@@ -9,9 +9,8 @@
 
 import { notP } from "../../../Data/Bool"
 import { equals, notEquals } from "../../../Data/Eq"
-import { cnst, flip, ident } from "../../../Data/Function"
+import { cnst, ident } from "../../../Data/Function"
 import { fmap, fmapF, mapReplace } from "../../../Data/Functor"
-import * as IntMap from "../../../Data/IntMap"
 import { over, set } from "../../../Data/Lens"
 import { consF, countWith, elem, elemF, filter, find, flength, fnull, foldr, isList, List, map, mapByIdKeyMap, notElem, notElemF, notNull, nub, subscript } from "../../../Data/List"
 import { all, ap, bind, bindF, ensure, fromJust, fromMaybe, guard, isJust, isNothing, join, Just, liftM2, listToMaybe, Maybe, maybe, maybeToList, Nothing, or, thenF } from "../../../Data/Maybe"
@@ -20,7 +19,8 @@ import { alter, elems, foldrWithKey, isOrderedMap, lookup, lookupF, member, Orde
 import { Record, RecordI } from "../../../Data/Record"
 import { filterMapListT, filterT, mapT } from "../../../Data/Transducer"
 import { fst, Pair, snd, Tuple } from "../../../Data/Tuple"
-import { CombatTechniqueGroupId, MagicalTradition, SkillGroup, SpecialAbilityGroup } from "../../Constants/Groups"
+import { traceShowId } from "../../../Debug/Trace"
+import { Aspect, CombatTechniqueGroupId, MagicalTradition, SkillGroup, SpecialAbilityGroup } from "../../Constants/Groups"
 import { AdvantageId, DisadvantageId, SkillId, SpecialAbilityId } from "../../Constants/Ids.gen"
 import { ActivatableDependent } from "../../Models/ActiveEntries/ActivatableDependent"
 import { ActivatableSkillDependent } from "../../Models/ActiveEntries/ActivatableSkillDependent"
@@ -43,6 +43,7 @@ import { composeT } from "../compose"
 import { filterUnfamiliar } from "../Dependencies/TransferredUnfamiliarUtils"
 import { countActiveGroupEntries } from "../entryGroupUtils"
 import { getAllEntriesByGroup } from "../heroStateUtils"
+import { prefixSA } from "../IDUtils"
 import { getTraditionOfAspect } from "../Increasable/liturgicalChantUtils"
 import { isUnfamiliarSpell } from "../Increasable/spellUtils"
 import { pipe, pipe_ } from "../pipe"
@@ -150,8 +151,10 @@ const incMapVal = alter (pipe (maybe (1) (inc), Just))
 
 const addChantToCounter =
   (chant: Record<LiturgicalChant>) =>
-    flip (foldr (flip (IntMap.insertWith (add)) (1)))
-         (LCA.aspects (chant))
+  (mp: OrderedMap<number, number>) =>
+    foldr ((aspect: Aspect) => OrderedMap.insertWith (add) <number> (aspect) (1))
+          (mp)
+          (LCA.aspects (chant))
 
 const addSpellToCounter = pipe (SpA.property, incMapVal)
 
@@ -190,10 +193,15 @@ const getAspectsWith3Gte10 =
       HA.liturgicalChants,
       elems,
       filterSkillsGte10,
+      traceShowId,
       mapByIdKeyMap (SDA.liturgicalChants (staticData)),
-      foldr (addChantToCounter) (IntMap.empty),
-      IntMap.foldrWithKey<number, List<number>> (k => x => x >= 3 ? consF (k) : ident)
-                                                (List.empty)
+      traceShowId,
+      foldr (addChantToCounter) (OrderedMap.empty),
+      traceShowId,
+      OrderedMap.foldrWithKey ((k: number) => (x: number) => (xs: List<number>) =>
+                                x >= 3 ? consF (k) (xs) : xs)
+                              (List.empty),
+      traceShowId,
     )
 
 const isSocialSkill =
@@ -285,11 +293,12 @@ const modifySelectOptions =
                                         ))
                                         (mhero_entry)
 
-        const isPrejudiceAndActive: (x: Record<SelectOption>) => boolean =
-          x => SOA.id (x) === 7 && elem (7) (unique_selections)
+        const isInfiniteActive: (id: number) => (x: Record<SelectOption>) => boolean =
+          id => x => SOA.id (x) === id && elem (id) (unique_selections)
 
-        const isUnworldlyAndActive: (x: Record<SelectOption>) => boolean =
-          x => SOA.id (x) === 8 && elem (8) (unique_selections)
+        const isPrejudiceAndActive = isInfiniteActive (7)
+
+        const isUnworldlyAndActive = isInfiniteActive (8)
 
         const isNotActiveAndMaxNotReached: (x: Record<SelectOption>) => boolean =
           x => isNotActive (mhero_entry) (x)
@@ -393,7 +402,7 @@ const modifySelectOptions =
         )))
       }
 
-      case SpecialAbilityId.traditionGuildMages: {
+      case prefixSA (SpecialAbilityId.traditionGuildMages): {
         return fmap (filterUnfamiliar (pipe (
                                         SpA.tradition,
                                         trads => notElem (MagicalTradition.General) (trads)
@@ -429,6 +438,8 @@ const modifySelectOptions =
 
       case SpecialAbilityId.aspectKnowledge: {
         const valid_aspects = getAspectsWith3Gte10 (staticData) (hero)
+
+        traceShowId (valid_aspects)
 
         const isAspectValid = pipe (SOA.id, elemF<string | number> (valid_aspects))
 
@@ -478,15 +489,15 @@ const modifySelectOptions =
                                     )))
       }
 
-      case SpecialAbilityId.spellEnhancement:
-      case SpecialAbilityId.chantEnhancement: {
-        const getTargetHeroEntry = current_id === SpecialAbilityId.spellEnhancement
+      case prefixSA (SpecialAbilityId.spellEnhancement):
+      case prefixSA (SpecialAbilityId.chantEnhancement): {
+        const getTargetHeroEntry = current_id === prefixSA (SpecialAbilityId.spellEnhancement)
           ? bindF (lookupF (HA.spells (hero)))
           : bindF (lookupF (HA.liturgicalChants (hero)))
 
         const getTargetWikiEntry:
           ((x: Maybe<string>) => Maybe<Record<Spell> | Record<LiturgicalChant>>) =
-          current_id === SpecialAbilityId.spellEnhancement
+          current_id === prefixSA (SpecialAbilityId.spellEnhancement)
             ? bindF (lookupF (SDA.spells (staticData)))
             : bindF (lookupF (SDA.liturgicalChants (staticData)))
 
@@ -611,7 +622,7 @@ const modifySelectOptions =
 
         const mtransferred_spell_trads = pipe_ (
                                            HA.specialAbilities (hero),
-                                           lookup (SpecialAbilityId.traditionGuildMages),
+                                           lookup (prefixSA (SpecialAbilityId.traditionGuildMages)),
                                            bindF (pipe (ADA.active, listToMaybe)),
                                            bindF (pipe (AOA.sid, isStringM)),
                                            bindF (lookupF (SDA.spells (staticData))),
@@ -719,7 +730,7 @@ const modifyOtherOptions =
         )
       }
 
-      case SpecialAbilityId.traditionGuildMages:
+      case prefixSA (SpecialAbilityId.traditionGuildMages):
       case SpecialAbilityId.traditionWitches:
       case SpecialAbilityId.traditionElves:
       case SpecialAbilityId.traditionDruids:

@@ -4,6 +4,7 @@ import { OrderedMap } from "../../../Data/OrderedMap"
 import { Record } from "../../../Data/Record"
 import { Category } from "../../Constants/Categories"
 import { Item } from "../Hero/Item"
+import { OverridePrerequisite } from "../Static_Prerequisites.gen"
 import { CultureCombined } from "../View/CultureCombined"
 import { ProfessionCombined } from "../View/ProfessionCombined"
 import { RaceCombined } from "../View/RaceCombined"
@@ -31,9 +32,7 @@ import { CombatTechniquesSelection } from "./professionSelections/CombatTechniqu
 import { CursesSelection } from "./professionSelections/CursesSelection"
 import { LanguagesScriptsSelection } from "./professionSelections/LanguagesScriptsSelection"
 import { VariantCombatTechniquesSelection } from "./professionSelections/RemoveCombatTechniquesSelection"
-import { VariantCombatTechniquesSecondSelection } from "./professionSelections/RemoveSecondCombatTechniquesSelection"
 import { VariantSpecializationSelection } from "./professionSelections/RemoveSpecializationSelection"
-import { CombatTechniquesSecondSelection } from "./professionSelections/SecondCombatTechniquesSelection"
 import { SkillsSelection } from "./professionSelections/SkillsSelection"
 import { SpecializationSelection } from "./professionSelections/SpecializationSelection"
 import { TerrainKnowledgeSelection } from "./professionSelections/TerrainKnowledgeSelection"
@@ -140,7 +139,6 @@ export enum ProfessionSelectionIds {
   SPECIALIZATION = "SPECIALISATION",
   LANGUAGES_SCRIPTS = "LANGUAGES_SCRIPTS",
   COMBAT_TECHNIQUES = "COMBAT_TECHNIQUES",
-  COMBAT_TECHNIQUES_SECOND = "COMBAT_TECHNIQUES_SECOND",
   CANTRIPS = "CANTRIPS",
   CURSES = "CURSES",
   SKILLS = "SKILLS",
@@ -153,7 +151,6 @@ export type AnyProfessionSelection =
   Record<SpecializationSelection> |
   Record<LanguagesScriptsSelection> |
   Record<CombatTechniquesSelection> |
-  Record<CombatTechniquesSecondSelection> |
   Record<CantripsSelection> |
   Record<CursesSelection> |
   Record<SkillsSelection> |
@@ -163,7 +160,6 @@ export type AnyProfessionVariantSelection =
   VariantSpecializationSelection |
   Record<LanguagesScriptsSelection> |
   VariantCombatTechniquesSelection |
-  VariantCombatTechniquesSecondSelection |
   Record<CantripsSelection> |
   Record<CursesSelection> |
   Record<SkillsSelection> |
@@ -175,6 +171,26 @@ export type ActivatablePrerequisites = List<AllRequirements>
 export type LevelAwarePrerequisites =
   ActivatablePrerequisites |
   OrderedMap<number, ActivatablePrerequisites>
+
+
+type Prerequisites_tIndex = Readonly<{
+  sex?: OverridePrerequisite
+  race?: OverridePrerequisite
+  culture?: OverridePrerequisite
+  pact?: OverridePrerequisite
+  social?: OverridePrerequisite
+  primaryAttribute?: OverridePrerequisite
+  activatable: OrderedMap<number, OverridePrerequisite>
+  activatableMultiEntry: OrderedMap<number, OverridePrerequisite>
+  activatableMultiSelect: OrderedMap<number, OverridePrerequisite>
+  increasable: OrderedMap<number, OverridePrerequisite>
+  increasableMultiEntry: OrderedMap<number, OverridePrerequisite>
+}>
+
+
+export type PrerequisitesIndex = Readonly<Prerequisites_tIndex & {
+  levels: OrderedMap<number, Prerequisites_tIndex>
+}>
 
 export interface ActivatableBase {
   id: string
@@ -188,7 +204,7 @@ export interface ActivatableBase {
   /**
    * 0-based index as key!
    */
-  prerequisitesTextIndex: OrderedMap<number, string | false>
+  prerequisitesTextIndex: PrerequisitesIndex
   prerequisitesTextStart: Maybe<string>
   prerequisitesTextEnd: Maybe<string>
   tiers: Maybe<number>
